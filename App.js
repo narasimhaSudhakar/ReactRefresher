@@ -9,6 +9,7 @@ import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Error } from "./components/Error";
 import { Home } from "./components/Home";
+import { AdvancedComps } from "./components/AdvComponents/AdvancedComps";
 import { Examples } from "./components/Examples";
 import { Shimmer } from "./components/Shimmer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -122,6 +123,7 @@ const appRouter = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "cart", element: <Cart /> },
       { path: "examples", element: <Examples /> },
+      { path: "advcomp", element: <AdvancedComps /> },
       { path: "restaurants/:resId", element: <RestaurantMenu /> },
     ],
     errorElement: <Error />,
