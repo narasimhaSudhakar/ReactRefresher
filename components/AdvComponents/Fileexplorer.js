@@ -1,6 +1,7 @@
 import { useState } from "react";
 import explorer from "./Data/FolderData";
 import { Folder } from "./Folder";
+import { Pagination } from "./Pagination";
 import { UseTreaverseTree } from "./CustomHooks/useTraversetree";
 
 export const FileExplorer = () => {
@@ -11,8 +12,13 @@ export const FileExplorer = () => {
   };
   return (
     <div>
-      File Explorer
-      <Folder handleInsertNode={handleInsertNode} explorer={explorerData} />
+      <div>
+        File Explorer
+        <Folder handleInsertNode={handleInsertNode} explorer={explorerData} />
+      </div>
+      <div>
+        <Pagination />
+      </div>
     </div>
   );
 };
