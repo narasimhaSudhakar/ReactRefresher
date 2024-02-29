@@ -12,6 +12,7 @@ import { Home } from "./components/Home";
 import { AdvancedComps } from "./components/AdvComponents/AdvancedComps";
 import { Examples } from "./components/Examples";
 import { Shimmer } from "./components/Shimmer";
+import {AdvancedComps} from "./components/AdvComponents/AdvancedComps"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./app.css";
 import { RestaurantMenu } from "./components/RestaurantMenu";
