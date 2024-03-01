@@ -1,12 +1,12 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
+@tailwind utilities; */
+/* 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .header {
   display: flex;
@@ -241,17 +241,36 @@ input.inputcontainer__input {
   height: 95%;
   margin-bottom: 5px;
 }
-.pagination>span {
+.pagination > span {
   display: inline-block;
   cursor: pointer;
-  padding: 5px ;
+  padding: 5px;
   text-align: center;
   width: 40px;
   border: 1px solid #000;
 }
-.pagination__selected{
+.pagination__selected {
   background-color: #ccc;
 }
-.pagination__disabled{
+.pagination__disabled {
   opacity: 0;
+}
+.tenure {
+  background-color: #555;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  color: white;
+  border-radius: 2px;
+}
+.tenure.selected {
+  background-color: rgb(77, 80, 255);
+}
+.emi {
+  display: block;
+  width: 100vw;
+  margin: 10px 5px;
+}
+.emi .labels {
+  display: inline-block;
+  width: 33%;
 }

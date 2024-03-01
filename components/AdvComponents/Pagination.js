@@ -45,7 +45,7 @@ export const Pagination = () => {
                 }}
                 key={i}
               >
-                {i + 1}
+                {i+1 }
               </span>
             );
           })}
