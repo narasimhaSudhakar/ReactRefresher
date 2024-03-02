@@ -49,8 +49,7 @@ with a value. we cannot change it later on.
            }
            foo(); */
 
-      
-         /*   var a;
+      /*   var a;
            var a; // var a can be redeclared as many times as you can
 
            // let a1; // let a has already declared. syntax error
@@ -59,7 +58,6 @@ with a value. we cannot change it later on.
            const a2=2; // const a2 cant be redecalerd in same scope.
  */
 
-     
       /*      const a2=12
      a2=13 // type error reassigning to const */
       /* {
@@ -82,6 +80,164 @@ with a value. we cannot change it later on.
       a = 10; // reinitializing is valid because for LET
       const a1 = 1;
       a1 = 10; // throws type error */
+
+      /* Hoisting: JS compilation runs in 2 different phases.
+      For every js file there are two steps involved in the 
+      process of compiling JavaScript code.
+      by default for every empty js page it has global execution context.
+      For every js function  or any other block of code which 
+      is enclosed within curly brackets {} ,JS engine creates
+       an environment record and pushes into Execution Context Stack .
+      1. Creation phase : In this phase all variables declared in that 
+      particular script are hoisted i.e they become available
+       from the beginning of the program.
+      2. Execution Phase : Here variable initialization happens
+       if we have initialized them during declaration
+        but not after declaration
+
+    Global Execution Context: This is the default execution context
+     in which the JavaScript code is executed when it is loaded
+      in the browser or run in a Node.js environment. 
+      The global execution context has a global object,
+       which is window in the browser and global in Node.js. 
+       It also has the this keyword, which refers to the global object.
+Function Execution Context: This is created whenever a 
+function is invoked in JavaScript. Each function invocation
+ creates a new function execution context. 
+ The function execution context has its own set of 
+ variables and functions that are defined within the function,
+  as well as its own this keyword.    
+
+  The execution context in JavaScript is managed by a stack
+   called the Execution Context Stack (ES). When the 
+   JavaScript engine starts, it creates a global execution
+    context and pushes it onto the stack. When a function
+     is invoked, a new function execution context is created 
+     and pushed onto the stack. When the function returns, 
+     its execution context is popped off the stack
+   and the previous execution context becomes active again.
+    
+   
+   The execution context also has a variable object (VO) 
+   that stores all the variables, functions, and arguments
+    defined in the context. The VO is created when the 
+    execution context is created 
+   and is used to resolve variable and function names in the context.
+
+   Creation Phase:
+The VO is created and initialized with the arguments, variables, and functions defined in the context.
+The this keyword is set to the global object in the global execution context or to the object that the function is a method of in the function execution context.
+The outer environment reference is set to the parent execution context.
+Execution Phase:
+The JavaScript code is executed and the variables, functions, and blocks are evaluated.
+The variables and functions are added to the VO as they are declared.
+The this keyword is used to refer to the object that the function is a method of.
+In summary, the execution context is an essential concept in JavaScript that helps manage the code execution and variable scope. Understanding the execution context is crucial for writing efficient and error-free JavaScript code.
+
+Example 1: Global Execution Context
+var globalVar = "This is a global variable.";
+function globalFunc() {
+  console.log("This is a global function.");
+}
+globalFunc(); // Output: This is a global function.
+
+In this example, there is only one execution context,
+ which is the global execution context. 
+ The globalVar variable and globalFunc function 
+ are defined in the global execution context and are
+  added to the VO. When globalFunc is invoked,
+ it is executed in the same global execution context.
+
+
+ Example 2: Function Execution Context
+
+ var globalVar = "This is a global variable.";
+function outerFunc() {
+  var outerVar = "This is an outer function variable.";
+  function innerFunc() {
+    var innerVar = "This is an inner function variable.";
+    console.log(globalVar); // Output: This is a global variable.
+    console.log(outerVar); // Output: This is an outer function variable.
+    console.log(innerVar); // Output: This is an inner function variable.
+  }
+  innerFunc();
+}
+outerFunc();
+
+In this example, there are two execution contexts:
+the global execution context and the outerFunc function 
+execution context. When outerFunc is invoked,
+a new function execution context is created
+and pushed onto the stack. The outerVar variable 
+is defined in the outerFunc execution context and
+ added to its VO. When innerFunc is invoked,
+ a new function execution context is created and pushed 
+the stack. The innerVar variable is defined in the innerFunc
+execution context and is added to its VO.
+The innerFunc execution context has access 
+to the variables and functions in the outerFunc
+execution context through the outer environment reference,
+and the outerFunc execution context
+has access to the global variables and functions
+through the outer environment reference.
+
+Example 3: this Keyword
+var globalObj = {
+  name: "Global Object",
+  method: function() {
+    console.log(this.name);
+  }
+};
+
+var obj = {
+  name: "Object",
+  method: function() {
+    console.log(this.name);
+  }
+};
+
+globalObj.method(); // Output: Global Object
+obj.method(); // Output: Object
+
+function func() {
+  console.log(this.name);
+}
+
+var name = "Global Variable";
+func(); // Output: Global Variable
+
+In this example, the this keyword refers to the object that the
+ function is a method of. When globalObj.method() is invoked,
+the this keyword refers to the globalObj object, 
+and the output is "Global Object". When obj.method() is invoked,
+ the this keyword refers to the obj object, and the output is "Object".
+  When func() is invoked, the 
+this keyword refers to the global object, and the output is "Global Vari
+
+
+1.Declaration phase 2.Execution phase
+      Declaration phase:Js looks for all the declarations 
+      and brings them into memory.for var it does at the 
+      top of execution phase.                   
+      Execution phase : Js assigns value to variable after  
+      declaration phase*/
+      /*      if (true) {
+        var x = 5;
+      }
+      console.log(x); // output will be 5
+
+      function func() {
+        var y = 6;
+      }
+      func();
+      console.log(y); //output will be undefine since y 
+      //is not declared globally but only inside the function scope
+      */
+
+      /* Scope chain: A scope chain is an ordered list
+       of objects that a JavaScript program's variables exist within.
+      /* Scope chain: A scope chain is an ordered list of objects
+       that contain variables accessible*/
     </script>
   </body>
 </html>
