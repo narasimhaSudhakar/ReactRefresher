@@ -238,6 +238,114 @@ this keyword refers to the global object, and the output is "Global Vari
        of objects that a JavaScript program's variables exist within.
       /* Scope chain: A scope chain is an ordered list of objects
        that contain variables accessible*/
+
+      /*       function example() {
+        if (true) {
+          let x = 5;
+          console.log(x); // Output: 5
+        }
+        console.log(x); // Error: x is not defined
+      }
+      example();
+ In this example, the variable x is declared with the let keyword
+  inside the if block. It can only be accessed within that block,
+   so the second console.log statement results in an error.
+
+const: for primitive objects const value can not be reassigned
+The const keyword is used to declare a constant variable.
+ Once a value is assigned to a constant variable, 
+ it cannot be changed. However, if the constant variable
+  is an object, its properties can still be modified. */
+
+      /*  Primitive values are the basic building blocks 
+ of JavaScript and include the following data types:
+Number
+String
+Boolean
+Null
+Undefined
+Symbol (new in ES6)
+BigInt (new in ES2020) */
+
+      /* The Temporal Dead Zone (TDZ) is a concept in JavaScript 
+that refers to the period between the start of a 
+block and the declaration of a variable using let or const.
+ During this period, attempting to access the variable will 
+ result in a ReferenceError, as the variable is not yet initialized.
+Here's an example to illustrate the TDZ:
+function foo() {
+  console.log(x); // ReferenceError: x is not defined
+  let x = 1;
+}
+foo();*/
+
+      let num = [1, 2, 3, 4];
+      /* num.map((numEle, index, arr) => {
+        console.log(numEle, "-- ", index, "---", arr);
+      }); */
+
+      let sum = num.reduce((acc, current, indx, arrr) => {
+        console.log(acc + current);
+        // return console.log(acc+current) // other than 1st ele,rest will get nan
+        return acc + current;
+      }, 10);
+      console.log("Total Sum Value", sum);
+
+      // array polyfill
+      /* A polyfill is a piece of code (usually a function) 
+that provides the functionality of a feature that is 
+
+supported by the current environment. 
+In this case, we will be discussing a polyfill for the map()
+method, which is a part of the Array prototype and is not
+supported in older browsers.
+The map() method creates a new array with the results of 
+calling a provided function on every element in the array.
+The map() method does not modify the original array,
+but instead returns a new array.
+
+Here is an example of how to use the map() method in older browsers: */
+      if (!Array.prototype.map) {
+        Array.prototype.map = function (callback, thisArg) {
+          const arr = this;
+          const newArr = [];
+          for (let i = 0; i < arr.length; i++) {
+            newArr.push(callback.call(thisArg, arr[i], i, arr));
+          }
+          return newArr;
+        };
+      }
+      /*In this polyfill, we first check if the map() method is already
+defined in the Array prototype. If it's not defined,
+we define it ourselves.
+The polyfill takes an array arr and a callback
+function callback as arguments. It creates a new empty array newArr
+and loops through each element in arr. For each element, 
+it calls the callback function with three arguments: the current element,
+the current index, and the original array. The call() method
+is used to set the this value for the callback function to 
+thisArg, which is the second argument to the polyfill.
+
+Finally, the polyfill returns the newArr array, which contains the
+ results of calling the callback function on each element in the
+  arr array.
+Here's an example of how to use the polyfill: */
+
+      const numbers = [1, 2, 3, 4, 5];
+      const squares = Array.prototype.map.call(numbers, (num) => num * num);
+      console.log(squares); // [1, 4, 9, 16, 25]
+
+      Array.prototype.customMap = function (cb) {
+        let temp = [];
+        for (i = 0; i < this.length; i++) {
+          temp.push(cb(this[i], i, this));
+        }
+        return temp;
+      };
+      let multiplier = numbers.customMap((ele) => {
+        return ele * 2;
+      });
+      console.log(multiplier);
     </script>
   </body>
 </html>
