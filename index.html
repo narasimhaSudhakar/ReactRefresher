@@ -19,6 +19,69 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script> -->
     <script type="module" src="./App.js"></script>
-    <script></script>
+    <script>
+      /* 
+      globalScope
+      if(true){blockScope}
+      for(){blockscope}
+      function foo(){
+        functionalScope
+        
+        ()=>{
+          functionalScope
+        }
+      }
+var considers all scopes like global,superglobal,functional,blockScope.
+let and const are block scoped we can re declare them in nested scope.
+but not able to access the outer one.const is immutable once declared 
+with a value. we cannot change it later on.      
+ */
+      // illegal shadowing
+      /*    function foo() {
+             var a = "hello";
+             let b = "hello"
+             if (true) {
+               let a = "hi"; //legal shadowing from outer scope variable
+               var b ="hi";  //illegal shadowing : syntax error
+               console.log(a);
+             }
+             console.log(a);
+           }
+           foo(); */
+
+      
+         /*   var a;
+           var a; // var a can be redeclared as many times as you can
+
+           // let a1; // let a has already declared. syntax error
+           let a1; 
+
+           const a2=2; // const a2 cant be redecalerd in same scope.
+ */
+
+     
+      /*      const a2=12
+     a2=13 // type error reassigning to const */
+      /* {
+        let a = 1;
+        const b = 2;
+        // let,const are block scoped can be
+        //  redeclared using shadowing
+        console.log(a, b);
+      }
+      let a = 10;
+      const b = 3;
+      console.log(a, b); */
+      /* 
+           let a1 ; //let declaring with our  initializer with  is VALID
+           console.log(a1) //undefined
+           const a;//const declaring with out initializer with  is INVALID 
+          //  throws Syntax error */
+      /* 
+      let a = 1;
+      a = 10; // reinitializing is valid because for LET
+      const a1 = 1;
+      a1 = 10; // throws type error */
+    </script>
   </body>
 </html>
