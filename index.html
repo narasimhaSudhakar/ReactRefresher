@@ -20,269 +20,269 @@
     ></script> -->
     <script type="module" src="./App.js"></script>
     <script>
-      /* 
-      globalScope
-      if(true){blockScope}
-      for(){blockscope}
-      function foo(){
-        functionalScope
-        
-        ()=>{
-          functionalScope
-        }
-      }
-var considers all scopes like global,superglobal,functional,blockScope.
-let and const are block scoped we can re declare them in nested scope.
-but not able to access the outer one.const is immutable once declared 
-with a value. we cannot change it later on.      
- */
+      /*
+            globalScope
+            if(true){blockScope}
+            for(){blockscope}
+            function foo(){
+              functionalScope
+
+              ()=>{
+                functionalScope
+              }
+            }
+      var considers all scopes like global,superglobal,functional,blockScope.
+      let and const are block scoped we can re declare them in nested scope.
+      but not able to access the outer one.const is immutable once declared
+      with a value. we cannot change it later on.
+       */
       // illegal shadowing
       /*    function foo() {
-             var a = "hello";
-             let b = "hello"
-             if (true) {
-               let a = "hi"; //legal shadowing from outer scope variable
-               var b ="hi";  //illegal shadowing : syntax error
-               console.log(a);
-             }
-             console.log(a);
-           }
-           foo(); */
+                   var a = "hello";
+                   let b = "hello"
+                   if (true) {
+                     let a = "hi"; //legal shadowing from outer scope variable
+                     var b ="hi";  //illegal shadowing : syntax error
+                     console.log(a);
+                   }
+                   console.log(a);
+                 }
+                 foo(); */
 
       /*   var a;
-           var a; // var a can be redeclared as many times as you can
+                 var a; // var a can be redeclared as many times as you can
 
-           // let a1; // let a has already declared. syntax error
-           let a1; 
+                 // let a1; // let a has already declared. syntax error
+                 let a1;
 
-           const a2=2; // const a2 cant be redecalerd in same scope.
- */
+                 const a2=2; // const a2 cant be redecalerd in same scope.
+       */
 
       /*      const a2=12
-     a2=13 // type error reassigning to const */
+           a2=13 // type error reassigning to const */
       /* {
-        let a = 1;
-        const b = 2;
-        // let,const are block scoped can be
-        //  redeclared using shadowing
-        console.log(a, b);
-      }
-      let a = 10;
-      const b = 3;
-      console.log(a, b); */
-      /* 
-           let a1 ; //let declaring with our  initializer with  is VALID
-           console.log(a1) //undefined
-           const a;//const declaring with out initializer with  is INVALID 
-          //  throws Syntax error */
-      /* 
-      let a = 1;
-      a = 10; // reinitializing is valid because for LET
-      const a1 = 1;
-      a1 = 10; // throws type error */
+              let a = 1;
+              const b = 2;
+              // let,const are block scoped can be
+              //  redeclared using shadowing
+              console.log(a, b);
+            }
+            let a = 10;
+            const b = 3;
+            console.log(a, b); */
+      /*
+                 let a1 ; //let declaring with our  initializer with  is VALID
+                 console.log(a1) //undefined
+                 const a;//const declaring with out initializer with  is INVALID
+                //  throws Syntax error */
+      /*
+            let a = 1;
+            a = 10; // reinitializing is valid because for LET
+            const a1 = 1;
+            a1 = 10; // throws type error */
 
       /* Hoisting: JS compilation runs in 2 different phases.
-      For every js file there are two steps involved in the 
-      process of compiling JavaScript code.
-      by default for every empty js page it has global execution context.
-      For every js function  or any other block of code which 
-      is enclosed within curly brackets {} ,JS engine creates
-       an environment record and pushes into Execution Context Stack .
-      1. Creation phase : In this phase all variables declared in that 
-      particular script are hoisted i.e they become available
-       from the beginning of the program.
-      2. Execution Phase : Here variable initialization happens
-       if we have initialized them during declaration
-        but not after declaration
+            For every js file there are two steps involved in the
+            process of compiling JavaScript code.
+            by default for every empty js page it has global execution context.
+            For every js function  or any other block of code which
+            is enclosed within curly brackets {} ,JS engine creates
+             an environment record and pushes into Execution Context Stack .
+            1. Creation phase : In this phase all variables declared in that
+            particular script are hoisted i.e they become available
+             from the beginning of the program.
+            2. Execution Phase : Here variable initialization happens
+             if we have initialized them during declaration
+              but not after declaration
 
-    Global Execution Context: This is the default execution context
-     in which the JavaScript code is executed when it is loaded
-      in the browser or run in a Node.js environment. 
-      The global execution context has a global object,
-       which is window in the browser and global in Node.js. 
-       It also has the this keyword, which refers to the global object.
-Function Execution Context: This is created whenever a 
-function is invoked in JavaScript. Each function invocation
- creates a new function execution context. 
- The function execution context has its own set of 
- variables and functions that are defined within the function,
-  as well as its own this keyword.    
+          Global Execution Context: This is the default execution context
+           in which the JavaScript code is executed when it is loaded
+            in the browser or run in a Node.js environment.
+            The global execution context has a global object,
+             which is window in the browser and global in Node.js.
+             It also has the this keyword, which refers to the global object.
+      Function Execution Context: This is created whenever a
+      function is invoked in JavaScript. Each function invocation
+       creates a new function execution context.
+       The function execution context has its own set of
+       variables and functions that are defined within the function,
+        as well as its own this keyword.
 
-  The execution context in JavaScript is managed by a stack
-   called the Execution Context Stack (ES). When the 
-   JavaScript engine starts, it creates a global execution
-    context and pushes it onto the stack. When a function
-     is invoked, a new function execution context is created 
-     and pushed onto the stack. When the function returns, 
-     its execution context is popped off the stack
-   and the previous execution context becomes active again.
-    
-   
-   The execution context also has a variable object (VO) 
-   that stores all the variables, functions, and arguments
-    defined in the context. The VO is created when the 
-    execution context is created 
-   and is used to resolve variable and function names in the context.
-
-   Creation Phase:
-The VO is created and initialized with the arguments, variables, and functions defined in the context.
-The this keyword is set to the global object in the global execution context or to the object that the function is a method of in the function execution context.
-The outer environment reference is set to the parent execution context.
-Execution Phase:
-The JavaScript code is executed and the variables, functions, and blocks are evaluated.
-The variables and functions are added to the VO as they are declared.
-The this keyword is used to refer to the object that the function is a method of.
-In summary, the execution context is an essential concept in JavaScript that helps manage the code execution and variable scope. Understanding the execution context is crucial for writing efficient and error-free JavaScript code.
-
-Example 1: Global Execution Context
-var globalVar = "This is a global variable.";
-function globalFunc() {
-  console.log("This is a global function.");
-}
-globalFunc(); // Output: This is a global function.
-
-In this example, there is only one execution context,
- which is the global execution context. 
- The globalVar variable and globalFunc function 
- are defined in the global execution context and are
-  added to the VO. When globalFunc is invoked,
- it is executed in the same global execution context.
+        The execution context in JavaScript is managed by a stack
+         called the Execution Context Stack (ES). When the
+         JavaScript engine starts, it creates a global execution
+          context and pushes it onto the stack. When a function
+           is invoked, a new function execution context is created
+           and pushed onto the stack. When the function returns,
+           its execution context is popped off the stack
+         and the previous execution context becomes active again.
 
 
- Example 2: Function Execution Context
+         The execution context also has a variable object (VO)
+         that stores all the variables, functions, and arguments
+          defined in the context. The VO is created when the
+          execution context is created
+         and is used to resolve variable and function names in the context.
 
- var globalVar = "This is a global variable.";
-function outerFunc() {
-  var outerVar = "This is an outer function variable.";
-  function innerFunc() {
-    var innerVar = "This is an inner function variable.";
-    console.log(globalVar); // Output: This is a global variable.
-    console.log(outerVar); // Output: This is an outer function variable.
-    console.log(innerVar); // Output: This is an inner function variable.
-  }
-  innerFunc();
-}
-outerFunc();
+         Creation Phase:
+      The VO is created and initialized with the arguments, variables, and functions defined in the context.
+      The this keyword is set to the global object in the global execution context or to the object that the function is a method of in the function execution context.
+      The outer environment reference is set to the parent execution context.
+      Execution Phase:
+      The JavaScript code is executed and the variables, functions, and blocks are evaluated.
+      The variables and functions are added to the VO as they are declared.
+      The this keyword is used to refer to the object that the function is a method of.
+      In summary, the execution context is an essential concept in JavaScript that helps manage the code execution and variable scope. Understanding the execution context is crucial for writing efficient and error-free JavaScript code.
 
-In this example, there are two execution contexts:
-the global execution context and the outerFunc function 
-execution context. When outerFunc is invoked,
-a new function execution context is created
-and pushed onto the stack. The outerVar variable 
-is defined in the outerFunc execution context and
- added to its VO. When innerFunc is invoked,
- a new function execution context is created and pushed 
-the stack. The innerVar variable is defined in the innerFunc
-execution context and is added to its VO.
-The innerFunc execution context has access 
-to the variables and functions in the outerFunc
-execution context through the outer environment reference,
-and the outerFunc execution context
-has access to the global variables and functions
-through the outer environment reference.
-
-Example 3: this Keyword
-var globalObj = {
-  name: "Global Object",
-  method: function() {
-    console.log(this.name);
-  }
-};
-
-var obj = {
-  name: "Object",
-  method: function() {
-    console.log(this.name);
-  }
-};
-
-globalObj.method(); // Output: Global Object
-obj.method(); // Output: Object
-
-function func() {
-  console.log(this.name);
-}
-
-var name = "Global Variable";
-func(); // Output: Global Variable
-
-In this example, the this keyword refers to the object that the
- function is a method of. When globalObj.method() is invoked,
-the this keyword refers to the globalObj object, 
-and the output is "Global Object". When obj.method() is invoked,
- the this keyword refers to the obj object, and the output is "Object".
-  When func() is invoked, the 
-this keyword refers to the global object, and the output is "Global Vari
-
-
-1.Declaration phase 2.Execution phase
-      Declaration phase:Js looks for all the declarations 
-      and brings them into memory.for var it does at the 
-      top of execution phase.                   
-      Execution phase : Js assigns value to variable after  
-      declaration phase*/
-      /*      if (true) {
-        var x = 5;
+      Example 1: Global Execution Context
+      var globalVar = "This is a global variable.";
+      function globalFunc() {
+        console.log("This is a global function.");
       }
-      console.log(x); // output will be 5
+      globalFunc(); // Output: This is a global function.
+
+      In this example, there is only one execution context,
+       which is the global execution context.
+       The globalVar variable and globalFunc function
+       are defined in the global execution context and are
+        added to the VO. When globalFunc is invoked,
+       it is executed in the same global execution context.
+
+
+       Example 2: Function Execution Context
+
+       var globalVar = "This is a global variable.";
+      function outerFunc() {
+        var outerVar = "This is an outer function variable.";
+        function innerFunc() {
+          var innerVar = "This is an inner function variable.";
+          console.log(globalVar); // Output: This is a global variable.
+          console.log(outerVar); // Output: This is an outer function variable.
+          console.log(innerVar); // Output: This is an inner function variable.
+        }
+        innerFunc();
+      }
+      outerFunc();
+
+      In this example, there are two execution contexts:
+      the global execution context and the outerFunc function
+      execution context. When outerFunc is invoked,
+      a new function execution context is created
+      and pushed onto the stack. The outerVar variable
+      is defined in the outerFunc execution context and
+       added to its VO. When innerFunc is invoked,
+       a new function execution context is created and pushed
+      the stack. The innerVar variable is defined in the innerFunc
+      execution context and is added to its VO.
+      The innerFunc execution context has access
+      to the variables and functions in the outerFunc
+      execution context through the outer environment reference,
+      and the outerFunc execution context
+      has access to the global variables and functions
+      through the outer environment reference.
+
+      Example 3: this Keyword
+      var globalObj = {
+        name: "Global Object",
+        method: function() {
+          console.log(this.name);
+        }
+      };
+
+      var obj = {
+        name: "Object",
+        method: function() {
+          console.log(this.name);
+        }
+      };
+
+      globalObj.method(); // Output: Global Object
+      obj.method(); // Output: Object
 
       function func() {
-        var y = 6;
+        console.log(this.name);
       }
-      func();
-      console.log(y); //output will be undefine since y 
-      //is not declared globally but only inside the function scope
-      */
+
+      var name = "Global Variable";
+      func(); // Output: Global Variable
+
+      In this example, the this keyword refers to the object that the
+       function is a method of. When globalObj.method() is invoked,
+      the this keyword refers to the globalObj object,
+      and the output is "Global Object". When obj.method() is invoked,
+       the this keyword refers to the obj object, and the output is "Object".
+        When func() is invoked, the
+      this keyword refers to the global object, and the output is "Global Vari
+
+
+      1.Declaration phase 2.Execution phase
+            Declaration phase:Js looks for all the declarations
+            and brings them into memory.for var it does at the
+            top of execution phase.
+            Execution phase : Js assigns value to variable after
+            declaration phase*/
+      /*      if (true) {
+              var x = 5;
+            }
+            console.log(x); // output will be 5
+
+            function func() {
+              var y = 6;
+            }
+            func();
+            console.log(y); //output will be undefine since y
+            //is not declared globally but only inside the function scope
+            */
 
       /* Scope chain: A scope chain is an ordered list
-       of objects that a JavaScript program's variables exist within.
-      /* Scope chain: A scope chain is an ordered list of objects
-       that contain variables accessible*/
+             of objects that a JavaScript program's variables exist within.
+            /* Scope chain: A scope chain is an ordered list of objects
+             that contain variables accessible*/
 
       /*       function example() {
-        if (true) {
-          let x = 5;
-          console.log(x); // Output: 5
-        }
-        console.log(x); // Error: x is not defined
+              if (true) {
+                let x = 5;
+                console.log(x); // Output: 5
+              }
+              console.log(x); // Error: x is not defined
+            }
+            example();
+       In this example, the variable x is declared with the let keyword
+        inside the if block. It can only be accessed within that block,
+         so the second console.log statement results in an error.
+
+      const: for primitive objects const value can not be reassigned
+      The const keyword is used to declare a constant variable.
+       Once a value is assigned to a constant variable,
+       it cannot be changed. However, if the constant variable
+        is an object, its properties can still be modified. */
+
+      /*  Primitive values are the basic building blocks
+       of JavaScript and include the following data types:
+      Number
+      String
+      Boolean
+      Null
+      Undefined
+      Symbol (new in ES6)
+      BigInt (new in ES2020) */
+
+      /* The Temporal Dead Zone (TDZ) is a concept in JavaScript
+      that refers to the period between the start of a
+      block and the declaration of a variable using let or const.
+       During this period, attempting to access the variable will
+       result in a ReferenceError, as the variable is not yet initialized.
+      Here's an example to illustrate the TDZ:
+      function foo() {
+        console.log(x); // ReferenceError: x is not defined
+        let x = 1;
       }
-      example();
- In this example, the variable x is declared with the let keyword
-  inside the if block. It can only be accessed within that block,
-   so the second console.log statement results in an error.
-
-const: for primitive objects const value can not be reassigned
-The const keyword is used to declare a constant variable.
- Once a value is assigned to a constant variable, 
- it cannot be changed. However, if the constant variable
-  is an object, its properties can still be modified. */
-
-      /*  Primitive values are the basic building blocks 
- of JavaScript and include the following data types:
-Number
-String
-Boolean
-Null
-Undefined
-Symbol (new in ES6)
-BigInt (new in ES2020) */
-
-      /* The Temporal Dead Zone (TDZ) is a concept in JavaScript 
-that refers to the period between the start of a 
-block and the declaration of a variable using let or const.
- During this period, attempting to access the variable will 
- result in a ReferenceError, as the variable is not yet initialized.
-Here's an example to illustrate the TDZ:
-function foo() {
-  console.log(x); // ReferenceError: x is not defined
-  let x = 1;
-}
-foo();*/
+      foo();*/
 
       let num = [1, 2, 3, 4];
       /* num.map((numEle, index, arr) => {
-        console.log(numEle, "-- ", index, "---", arr);
-      }); */
+              console.log(numEle, "-- ", index, "---", arr);
+            }); */
 
       let sum = num.reduce((acc, current, indx, arrr) => {
         console.log(acc + current);
@@ -292,19 +292,19 @@ foo();*/
       console.log("Total Sum Value", sum);
 
       // array polyfill
-      /* A polyfill is a piece of code (usually a function) 
-that provides the functionality of a feature that is 
+      /* A polyfill is a piece of code (usually a function)
+      that provides the functionality of a feature that is
 
-supported by the current environment. 
-In this case, we will be discussing a polyfill for the map()
-method, which is a part of the Array prototype and is not
-supported in older browsers.
-The map() method creates a new array with the results of 
-calling a provided function on every element in the array.
-The map() method does not modify the original array,
-but instead returns a new array.
+      supported by the current environment.
+      In this case, we will be discussing a polyfill for the map()
+      method, which is a part of the Array prototype and is not
+      supported in older browsers.
+      The map() method creates a new array with the results of
+      calling a provided function on every element in the array.
+      The map() method does not modify the original array,
+      but instead returns a new array.
 
-Here is an example of how to use the map() method in older browsers: */
+      Here is an example of how to use the map() method in older browsers: */
       if (!Array.prototype.map) {
         Array.prototype.map = function (callback, thisArg) {
           const arr = this;
@@ -316,20 +316,20 @@ Here is an example of how to use the map() method in older browsers: */
         };
       }
       /*In this polyfill, we first check if the map() method is already
-defined in the Array prototype. If it's not defined,
-we define it ourselves.
-The polyfill takes an array arr and a callback
-function callback as arguments. It creates a new empty array newArr
-and loops through each element in arr. For each element, 
-it calls the callback function with three arguments: the current element,
-the current index, and the original array. The call() method
-is used to set the this value for the callback function to 
-thisArg, which is the second argument to the polyfill.
+      defined in the Array prototype. If it's not defined,
+      we define it ourselves.
+      The polyfill takes an array arr and a callback
+      function callback as arguments. It creates a new empty array newArr
+      and loops through each element in arr. For each element,
+      it calls the callback function with three arguments: the current element,
+      the current index, and the original array. The call() method
+      is used to set the this value for the callback function to
+      thisArg, which is the second argument to the polyfill.
 
-Finally, the polyfill returns the newArr array, which contains the
- results of calling the callback function on each element in the
-  arr array.
-Here's an example of how to use the polyfill: */
+      Finally, the polyfill returns the newArr array, which contains the
+       results of calling the callback function on each element in the
+        arr array.
+      Here's an example of how to use the polyfill: */
 
       const numbers = [1, 2, 3, 4, 5];
       const squares = Array.prototype.map.call(numbers, (num) => num * num);
@@ -346,6 +346,51 @@ Here's an example of how to use the polyfill: */
         return ele * 2;
       });
       console.log(multiplier);
+
+      /* Filter() polyfill = filter method only shows the elements
+            inside the fitlered array which are passed the filtered condition.
+            */
+      Array.prototype.customFilter = function (cb) {
+        let temp = [];
+        for (let i = 0; i < this.length; i++) {
+          if (cb(this[i], i, this)) temp.push(this[i]);
+        }
+        return temp;
+      };
+      let nummm = [19, 3, 4, 2, 5];
+      let morethan2 = nummm.customFilter((numEle) => {
+        return numEle > 2;
+      });
+      console.log(morethan2);
+
+      let stocks = ["SBI", "Rel", "ITC", "TCS", "Bajaj"];
+      Array.prototype.customMap2 = function (cb) {
+        let temp = [];
+        for (i = 0; i < this.length; i++) {
+          temp.push(cb(this[i], i, this));
+        }
+        return temp;
+      };
+      const listOfStocks = stocks.customMap2((stock, i) =>
+        console.log(i, stock)
+      );
+      const multiplyByTwo = numbers.customMap2((num) =>
+        console.log(i, num * 2)
+      );
+
+      Array.prototype.customFilter2 = function (cb) {
+        let temp = [];
+        for (var i = 0; i < this.length; i++) {
+          if (cb(this[i], i, this)) temp.push(this[i]);
+        }
+        return temp;
+      };
+
+      let threeMultiplier = numbers.customFilter2((ele) => {
+        let result = ele > 2;
+        return result;
+      });
+      console.log(threeMultiplier);
     </script>
   </body>
 </html>
