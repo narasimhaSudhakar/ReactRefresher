@@ -96,6 +96,7 @@ export const Header = () => {
           >
             {btnName}
           </Link>
+          <Link to="">Theme Change</Link>
         </li>
       </ul>
     </div>
