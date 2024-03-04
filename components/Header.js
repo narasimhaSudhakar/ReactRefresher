@@ -67,6 +67,16 @@ import { useSelector } from "react-redux";
 export const Header = () => {
   let [btnName, setBtnName] = useState("LogIn");
   let [onlineStatus, setOnlineStatus] = useState("Online");
+  const ThemeContext = React.createContext();
+  const ThemeProvider = ({ childer }) => {
+    const [theme, setTheme] = useState("light");
+    const toggleTheme = () => {
+      return setTheme(theme === "light" ? "dark" : "light");
+    };
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {childer}
+    </ThemeContext.Provider>;
+  };
   return (
     <div className="header">
       <ul>
