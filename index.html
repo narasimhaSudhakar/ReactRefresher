@@ -395,38 +395,112 @@
       Array.prototype.custom */
 
       /* JS INTERVIEW PREPERATION */
-      // Global execution context will invoke  the script code and 
+      // Global execution context will invoke  the script code and
       //  create a global object called window in browser environment.
       // In NodeJS there is no window runs in global oBj
-      // Call Stack: It's where JavaScript executes synchronously 
-      // one after another.first GEC then check for 
+      // Call Stack: It's where JavaScript executes synchronously
+      // one after another.first GEC then check for
       // variables and let const inside GEC. for var,let and const
-// are hosted with defualt value as undefined. but for let and const
-// there are hosted in tempDeadZone and saved in Script scope Context.
-// fns,var were hosted on top of the file.fns were hosted with all 
-// entire fns block.once fn() invoked then that particular execution context 
-// will created and it will be pushed into call stack.all the var inside the
-// second function now will follow the same hosting principle.by defulat var
-// assigned with undefined and hoisted on top of the fn.but let and const
-// follows temp dead zone concept.if any variable declared before then it will
-// not be hoisted to the top of the page.it will only be available once the 
-// execution of the program reaches that point
+      // are hosted with defualt value as undefined. but for let and const
+      // there are hosted in tempDeadZone and saved in Script scope Context.
+      // fns,var were hosted on top of the file.fns were hosted with all
+      // entire fns block.once fn() invoked then that particular execution context
+      // will created and it will be pushed into call stack.all the var inside the
+      // second function now will follow the same hosting principle.by defulat var
+      // assigned with undefined and hoisted on top of the fn.but let and const
+      // follows temp dead zone concept.if any variable declared before then it will
+      // not be hoisted to the top of the page.it will only be available once the
+      // execution of the program reaches that point
 
-      console.log(letHost) //RefError let cannot access before initailization
+      // console.log(letHost); //RefError let cannot access before initailization
       // but lets default value is also undefined.and save in seprate scriptScope
       // and let and const are stored in tempDeadZOne/
-      let letHost = "test"
-      console.log(varHost)
-       //by default all varibales are hoisted with undefined value.  
-      var varHost = "test"
-      console.log(sumw(4,5)) 
-      //fn hosted- fnc can be called before declaration. 
-      // for var default value is undefined for fns entire fn will be 
+      let letHost = "test";
+      console.log(varHost);
+      //by default all varibales are hoisted with undefined value.
+      var varHost = "test";
+      console.log(sumw(4, 5));
+      //fn hosted- fnc can be called before declaration.
+      // for var default value is undefined for fns entire fn will be
       // saved.
-
       function sumw(a, b) {
         return a + b;
       }
+      /* Var are function scoped variable let and const are 
+  block scoped {} variables*/
+
+      function example() {
+        if (true) {
+          let x = 10;
+          var y = 1;
+          console.log("x-", x); //let is block scoped consoles 10 here
+        }
+        // console.log("x--",x) // Ref Error x is not
+        //  defined here because let is block scoped
+        console.log(y); // var is funScope
+      }
+      example();
+
+      const x = 12;
+      // x=1 //typeError Assignemet to constant var
+
+      // undefined VS null
+      /* undefined var declared but value not assigned,after some time you assign.
+      null-
+       var declared and assigned with null value intentionally
+
+       typeOf operator used to determine the type of each variable
+
+       typeCoercion - automatic conversion of values frm one data type 
+       to the other data type 
+      */
+      let str = "string";
+      let no = 12;
+      let bol = true;
+      let nullVal = null;
+
+      console.log(str + no); //string12 no is converted to string.
+      console.log(str + bol); //stringtrue boolean is converted to string.
+      console.log(nullVal + no); //nullnull12 null is converted to zero
+      console.log(str + nullVal);
+
+      /* BODMAS - brackets,order,division,multiplication,addition,subtraction */
+
+      let a = 6,
+        b = 3,
+        c = 2;
+      console.log(a + b * c + (a - b));
+      /* first bracket then division,mul,add,sub 
+      6+3*2+(6-3) = 3,  3+2 = 6, 6 
+      */
+
+      /* Ternary operator as we have 3 operands so it is called as 
+      ternary operator */
+      let result = 5 < 7 ? "yes" : "no";
+      let showTruthy = false ? "Yes" : "No";
+      console.log(result, "showTruthy--", showTruthy);
+
+      /* shortCicuit Evaluation with LogicalAnd */
+      true && console.log("firstHello");
+      false && console.log("secondHello");
+
+      !true || console.log("logicalOrfirstHello");
+      false || console.log("logical Or secondHello");
+
+      /* SwitchStatement */
+      let switchA = 51;
+      switch(switchA){
+        case 1: console.log("firstCase"); break;
+        case 5: console.log("Fifth Case"); break;
+        case 2: console.log('Switch-secondCase'); break;
+        default : console.log('fifififi')
+      }
+      /* Spread and Rest operators */
+      let arr1= [1,2,3,4], arr2 =["a","b","c","d"]
+      let mergedArr = [...arr1, ...arr2];
+      console.log(mergedArr)
+
+      
     </script>
   </body>
 </html>
