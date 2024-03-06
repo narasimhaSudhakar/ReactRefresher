@@ -331,7 +331,7 @@
         arr array.
       Here's an example of how to use the polyfill: */
 
-      const numbers = [1, 2, 3, 4, 5];
+      /*  const numbers = [1, 2, 3, 4, 5];
       const squares = Array.prototype.map.call(numbers, (num) => num * num);
       console.log(squares); // [1, 4, 9, 16, 25]
 
@@ -345,12 +345,12 @@
       let multiplier = numbers.customMap((ele) => {
         return ele * 2;
       });
-      console.log(multiplier);
+      console.log(multiplier); */
 
       /* Filter() polyfill = filter method only shows the elements
             inside the fitlered array which are passed the filtered condition.
             */
-      Array.prototype.customFilter = function (cb) {
+      /*   Array.prototype.customFilter = function (cb) {
         let temp = [];
         for (let i = 0; i < this.length; i++) {
           if (cb(this[i], i, this)) temp.push(this[i]);
@@ -392,7 +392,13 @@
       });
       console.log(threeMultiplier);
 
-      Array.prototype.custom
+      Array.prototype.custom */
+
+      /* JS INTERVIEW PREPERATION */
+      console.log(sum())
+      function sum(a, b) {
+        return a + b;
+      }
     </script>
   </body>
 </html>
