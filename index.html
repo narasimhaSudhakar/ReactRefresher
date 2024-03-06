@@ -489,18 +489,41 @@
 
       /* SwitchStatement */
       let switchA = 51;
-      switch(switchA){
-        case 1: console.log("firstCase"); break;
-        case 5: console.log("Fifth Case"); break;
-        case 2: console.log('Switch-secondCase'); break;
-        default : console.log('fifififi')
+      switch (switchA) {
+        case 1:
+          console.log("firstCase");
+          break;
+        case 5:
+          console.log("Fifth Case");
+          break;
+        case 2:
+          console.log("Switch-secondCase");
+          break;
+        default:
+          console.log("fifififi");
       }
       /* Spread and Rest operators */
-      let arr1= [1,2,3,4], arr2 =["a","b","c","d"]
+      let arr1 = [1, 2, 3, 4],
+        arr2 = ["a", "b", "c", "d"];
       let mergedArr = [...arr1, ...arr2];
-      console.log(mergedArr)
+      console.log("spread--", mergedArr);
 
-      
+      console.log("spread--", ...arr1);
+
+      const copiedArr = [...arr1];
+      console.log("spread--Copied", copiedArr);
+
+      function total(a, b, c, d) {
+        console.log("totalFn--", 1 + 2 + 3 + 4);
+      }
+      total(arr1);
+      // rest
+      function display(first, second, ...args) {
+        console.log("display", first);
+        console.log("display", second);
+        console.log("display", args);
+      }
+      display("fnCalling",2, 3, 4, 5, 6, 7, 8, "hello");
     </script>
   </body>
 </html>
