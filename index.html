@@ -514,9 +514,9 @@
       console.log("spread--Copied", copiedArr);
 
       function total(a, b, c, d) {
-        console.log("totalFn--", 1 + 2 + 3 + 4);
+        console.log( a + b +c + d);
       }
-      total(arr1);
+      total(...arr1);
       // rest
       function display(first, second, ...args) {
         console.log("display", first);
