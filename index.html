@@ -395,8 +395,36 @@
       Array.prototype.custom */
 
       /* JS INTERVIEW PREPERATION */
-      console.log(sum())
-      function sum(a, b) {
+      // Global execution context will invoke  the script code and 
+      //  create a global object called window in browser environment.
+      // In NodeJS there is no window runs in global oBj
+      // Call Stack: It's where JavaScript executes synchronously 
+      // one after another.first GEC then check for 
+      // variables and let const inside GEC. for var,let and const
+// are hosted with defualt value as undefined. but for let and const
+// there are hosted in tempDeadZone and saved in Script scope Context.
+// fns,var were hosted on top of the file.fns were hosted with all 
+// entire fns block.once fn() invoked then that particular execution context 
+// will created and it will be pushed into call stack.all the var inside the
+// second function now will follow the same hosting principle.by defulat var
+// assigned with undefined and hoisted on top of the fn.but let and const
+// follows temp dead zone concept.if any variable declared before then it will
+// not be hoisted to the top of the page.it will only be available once the 
+// execution of the program reaches that point
+
+      console.log(letHost) //RefError let cannot access before initailization
+      // but lets default value is also undefined.and save in seprate scriptScope
+      // and let and const are stored in tempDeadZOne/
+      let letHost = "test"
+      console.log(varHost)
+       //by default all varibales are hoisted with undefined value.  
+      var varHost = "test"
+      console.log(sumw(4,5)) 
+      //fn hosted- fnc can be called before declaration. 
+      // for var default value is undefined for fns entire fn will be 
+      // saved.
+
+      function sumw(a, b) {
         return a + b;
       }
     </script>
