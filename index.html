@@ -570,6 +570,101 @@
           return ele * 3;
         });
       console.log("571", morethan3);
+
+      // slice() gets subset of array from startindex to endIndex
+      // if no endIndex provided it will consider till the last element
+      newArr = arr.slice(2, -1);
+      // -1 returns upto last element.startIndex =1,endIndex =-1
+      console.log("newArr", newArr);
+
+      arr.push("Hello"); //push method modifies original array itself
+      console.log("arr", arr);
+
+      console.log("584", arr.shift()); //removes first ele from arr
+      console.log(arr);
+      let firstElement = "First ";
+      let newConcatedArr = firstElement.concat(arr);
+      // concat creates newArray and not modifies orginal one
+      console.log(newConcatedArr);
+
+      arr.unshift("starts"); //adds at beginning of array
+      // concat add firstEle  in between others,but unshift,
+      // adds at beginning of array..
+      console.log(arr);
+
+      /* Splice() used to add,remove,replace elements of the array 
+      arr.splice(pos,[howmany],[addItem1...])*/
+      arr.splice(4, 4, "Hi", "Hello", 3, 5, "World"); //addItem will insert from pos
+      console.log(arr);
+      arr.splice(3, 2);
+      console.log(arr); //removes 2 elements from 3rdPosition
+      arr.splice(0, 0, "first", "added", "again"); // addItems added from 0Position
+      console.log(arr);
+
+      /* Map() creates newArray*/
+      let map = arr.map((e) => {
+        return e.toString().toUpperCase();
+      });
+      console.log("Map", map);
+      /* ForEach loops through withOut creating a newArray */
+      let ForEach = arr.forEach((e) => {
+        return "ForEach-", e * 2;
+      });
+      console.log(ForEach); // ForEach dont returns newArray .
+      // so consoles undefined
+
+      let alphebets = ["f", "z", "a", "e", "d", "s"];
+      console.log(alphebets.sort()); //sorted
+      console.log(alphebets.reverse());
+
+      /* Destructuring  extract individual elements from an array
+      and assign them to separate individual variables*/
+
+      const [...letters] = alphebets;
+      console.log(letters.reverse());
+
+      let numbers1 = [2, 3, 4, 5, 32, 12, 12];
+      const [x1, y, ...remain] = numbers1;
+      console.log(x1);
+      console.log(y);
+      console.log(remain);
+
+      /* ArrayLikeObjects */
+      let name = "sudhakar";
+      console.log(name[1], name.length);
+      // returns "u" but name is a string.
+      // name.push('sjsjs')
+      // console.log(name) //typeError as name is a stringType
+
+      /* arguments are also array like obj.but not arrays. */
+      arguments(12, 32);
+      function arguments() {
+        console.log(arguments);
+        console.log(arguments.length);
+        console.log(arguments[1]);
+        // console.log(arguments.push(33));//  TypeError: arguments is read only
+      }
+
+      /* convert Array from any Obj */
+      /*    var arrayLike = { 0: "a", 1: "b", 2: "c", 3: "d" };
+      var arrA = Array.from(arrayLike);
+      console.log("651", arrA); */
+
+      var arrayLike1 = { 0: "a", 1: "b", 2: "c", 3: "d", length: 3 };
+      // length property must be present in the obj.
+      // it expects the object to have an iterable property,
+      var arrAB = Array.from(arrayLike1);
+      console.log("657", arrAB); // Output: ['a', 'b', 'c', 'd']
+
+      let arrSlice = Array.prototype.slice.call(arrayLike1);
+      console.log("663",arrSlice)
+
+      let arrS = Object.values(arrayLike1);
+      console.log(arrS)//converted to array
+
+      /* LOOPS */
+      
     </script>
   </body>
 </html>
+
