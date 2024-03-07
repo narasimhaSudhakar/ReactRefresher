@@ -612,19 +612,15 @@ function ProductReviews() {
 }
 
 import React, { useState } from "react";
-
 function Wishlist() {
   const [wishlistItems, setWishlistItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
-
   const addToWishlist = (item) => {
     setWishlistItems([...wishlistItems, item]);
   };
-
   const addToFavorites = (item) => {
     setFavorites([...favorites, item]);
   };
-
   return (
     <div>
       <h2>Wishlist</h2>
