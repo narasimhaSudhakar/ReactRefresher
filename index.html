@@ -514,7 +514,7 @@
       console.log("spread--Copied", copiedArr);
 
       function total(a, b, c, d) {
-        console.log( a + b +c + d);
+        console.log(a + b + c + d);
       }
       total(...arr1);
       // rest
@@ -523,7 +523,53 @@
         console.log("display", second);
         console.log("display", args);
       }
-      display("fnCalling",2, 3, 4, 5, 6, 7, 8, "hello");
+      display("fnCalling", 2, 3, 4, 5, 6, 7, 8, "hello");
+
+      /* Array  */
+      /* Get(create) array methods - 
+        indexOf() 
+        slice()
+        filter()
+        find()
+        
+        Add Array Methods - 
+        push()
+        concat()
+        unshift()
+
+        remove Array Methods - 
+        pop()
+        shift()
+        splice()
+        
+        Modify Array Methods - 
+        splice()
+        forEach()
+        map()
+
+        Others - length,some(),sort(),reverse(),join(),every(),reduce()
+      */
+      let arr = [3, 4, 5, 22, 13, 2, 12];
+      let newArr = [];
+      //IndexOf()- checks all values of arr elements and
+      //  returns index of the parameter
+      //if searched parameter is not available returns -1
+      console.log("newArr", arr.indexOf(22));
+      // find()- gets the first element that satisfiesCondition
+      let findMod2 = arr.find((ele) => ele % 2 === 0);
+      let findGrt20 = arr.find((ele) => ele > 20);
+      console.log(findMod2, findGrt20);
+
+      // filter() gets an array of elements that satisfies a condition
+      // we can chain other methods after filter()
+      let morethan3 = arr
+        .filter((ele) => {
+          return ele > 3;
+        })
+        .map((ele) => {
+          return ele * 3;
+        });
+      console.log("571", morethan3);
     </script>
   </body>
 </html>
