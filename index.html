@@ -657,14 +657,127 @@
       console.log("657", arrAB); // Output: ['a', 'b', 'c', 'd']
 
       let arrSlice = Array.prototype.slice.call(arrayLike1);
-      console.log("663",arrSlice)
+      console.log("663", arrSlice);
 
       let arrS = Object.values(arrayLike1);
-      console.log(arrS)//converted to array
+      console.log(arrS); //converted to array
 
-      /* LOOPS */
-      
+      /* LOOPS
+      1.For 2.While 3.DoWhile 4.For..In 5.For..Of
+      */
+      /* let j = 0;
+      while (j < 5) {
+        //condition fails => infinity
+        console.log(j);
+        j++;
+      } */
+      // infinityLoop EXample
+      // while("a"=="a"){ while loop executes a condition till condition is true
+      // console.log('infinity')
+      // }
+
+      /*   let k = 0;
+      do {
+        console.log(k);
+        k++;
+      } while (k<10); */ //executes at least once and then checks for the condition
+      /* 
+      for(var i=0;i<10;i++){
+        if(i==2 || i==5){
+          continue // continue skips current iteration move on to
+          // next round only
+          break // if condition mets => terminate  the loop 
+        }
+        console.log(i,"cococ")        
+      } */
+
+      /* for(let key in arrayLike1){
+        console.log(key, arrayLike1[key]);
+      } */
+      /* // for of is similar to for but much simpler
+      for (let num of numbers1) {
+        console.log("nnn",num);
+      } */
+      let oo = { name: "s", age: 40 };
+      let aa = ["as", true, 32];
+      for (let x of Object.values(oo)) {
+        console.log(x);
+      }
+      for (let x of Object.entries(oo)) {
+        console.log(x);
+      }
+      for (const [key, val] of Object.entries(oo)) {
+        console.log(`${key},${val}`);
+        console.log(key, val);
+      }
+      let strName = "sudhakar";
+      // forOf loops through  string characters withOut having to
+      //  use and index
+      for (let s of strName) {
+        console.log(s);
+      }
+
+      // forIn used to loop through the obj,iterate over keys through the obj
+      let personObj = {
+        name: "sudhakar",
+        age: 30,
+      };
+      for (let key in personObj) {
+        console.log(key, personObj[key]);
+      }
+      let stocksArr = ["itc", "sbi", "rel", "axis"];
+      for (let stock of stocksArr) {
+        console.log(stock);
+      }
+      for (let stock in stocksArr) {
+        console.log(stock, stocksArr[stock]);
+      }
+      stocksArr.forEach((item) => {
+        console.log(item);
+      });
+      Object.values(personObj).forEach((prop) => {
+        console.log(prop);
+      });
+      for (let prop of Object.values(personObj)) {
+        console.log(prop);
+      }
+      /* if you want to use if condition inside loop forOf is best
+      forEach  doesn't support it */
+
+      for (let stock of stocksArr) {
+        console.log(stock);
+        if (stock === "sbi") {
+          break;
+        }
+        // console.log(stock);
+      }
+      /* break and cont statements wont work in forEach */
+
+      /* Functions Named,expressions,IIFEE,Callbacks,closures,higher order functions
+      Anonymous function,
+      */
+
+      /*   const add = (x, y) => x + y;
+      const sub = (x, y) => x - y;
+      const multi = (x, y) => x * y;
+      const devi = (x, y) => x / y;
+      // Operation is an callback function
+
+      const displayRes = (x,y,operation)=>{
+        let result = operation(x,y);
+        return result
+      }
+      console.log(displayRes(3,4,add)) */
+
+      /* first Class functions can use like variables,parameters,
+      return from functions */
+      function operation(x,y){
+        return console.log(x,y)
+      }
+      function display(x, y, operation) {
+        return operation(x,y)
+      }
+      // console.log(display(3,4))
     </script>
   </body>
 </html>
-
